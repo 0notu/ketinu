@@ -38,7 +38,7 @@ module.exports = class Bot {
                 msg.member.roles.cache.forEach((role, id) => {
                     user_roles.push(id)
                 })
-                let accepted = file.help.roles || this.client.config.everyone;
+                let accepted = file.help.roles || new Array(msg.guild.roles.everyone.id);
                 let exists = user_roles.some(r=>accepted.includes(r))
                 if (!exists) {throw "role"}
 
@@ -51,7 +51,6 @@ module.exports = class Bot {
                     console.log("Cmd failed: "+e)
                     //msg.react("768291025315168266")
                 } else {
-                    console.log(e)
                     return /* yolo */
                 }
                 return
