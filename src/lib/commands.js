@@ -1,16 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const data = require('./data');
 let commands = {}
-
-function get_command_dir_path(cmd_dir) {
-    var absolute = path.resolve(cmd_dir)
-    return absolute
-}
 
 function run_me(command_dir) {
     try {
-        clean(get_command_dir_path(command_dir))
+        clean(path.resolve(command_dir))
     } catch {/*Yolo*/}
     finally {
         for (alias in commands) {
@@ -22,9 +16,7 @@ function run_me(command_dir) {
                 commands[alias].data_path = data_path;
             } catch (e) {/*No Data File Exists*/}
         }
-        console.log(commands)
         return commands
-        
     }
 }
 
