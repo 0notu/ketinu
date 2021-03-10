@@ -1,5 +1,5 @@
 # ketinu
-Don't Steal My Shit
+Good luck lol
 
 Discord bot framework for node.js
 
